@@ -2,9 +2,9 @@
     "author":"LazyCat",
     "title":"",
     "logo":"",
-    "tag":"",
+    "tag":[{"index":0,"name":"android"},{"index":1,"name":"C++"}],
     "list":[
-        {"date":"2019-03-08","title":"","mode":"","tag":0}
+        {"date":"2019-03-08","title":"","mode":"","tag":0,"path":"","encrypt":true}
     ]
 
 }
