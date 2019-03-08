@@ -4,8 +4,11 @@ import re
 import json
 import copy
 import string
+from CreateHtml import BlogHtml
 # defaultencoding = 'utf-8'
 # if sys.getdefaultencoding() != defaultencoding:
 #     reload(sys)
 #     sys.setdefaultencoding(defaultencoding)
-print("123")
+blog=BlogHtml()
+blog.create_index()
+# print("123")
