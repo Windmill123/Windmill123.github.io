@@ -1,11 +1,12 @@
 {
     "author":"LazyCat",
-    "title":"",
-    "logo":"",
-    "tag":[{"index":0,"name":"android"},{"index":1,"name":"C++"},{"index":2,"name":"Ubuntu"}],
+    "title":"Test",
+    "logo":"https://avatars1.githubusercontent.com/u/37890402?s=460&v=4",
+    "path":"",
+    "pageItems":15,
+    "tag":[{"name":"android"},{"name":"C++"},{"name":"Ubuntu"}],
     "list":[
-        {"date":"2019-03-08","title":"","mode":"index-model","tag":-1,"path":"","encrypt":true,"page":"1.html"},
-        {"date":"2019-03-08","title":"","mode":"index-model","tag":-1,"path":"","encrypt":true,"page":"2.html"},
-        {"date":"2019-03-08","title":"","mode":"index-model","tag":-1,"path":"","encrypt":true,"page":"3.html"}
+        {"date":"2018-07-13","title":"Android静默安装","mode":"index-model","tag":0,"path":"../","encrypt":true,"page":"2018-07-14-01.html","isCreate":true},
+        {"date":"2018-08-02","title":"Ubuntu安装AndroidStudio-2","mode":"index-model","tag":2,"path":"../","encrypt":true,"page":"2018-07-14-02.html","isCreate":true}
     ]
 }

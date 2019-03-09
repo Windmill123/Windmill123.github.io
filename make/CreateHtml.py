@@ -15,15 +15,20 @@ class BlogHtml:
         indexHtml=None
         itemHtml=None
         pageCount=0
-        pageSize=3
+        pageSize=10
         allCount=0
         index=0
         with open('../config.json','r', encoding='UTF-8') as f:
             document=f.read()
             load_dict=json.loads(document)
             self.configObj=load_dict
+        pageSize=self.configObj['pageItems']
         with open('../model/index-model.html','r', encoding='UTF-8') as f:
             indexHtml=f.read()
+            indexHtml=indexHtml.replace('{-{config.logo}-}',self.configObj['logo'])
+            indexHtml=indexHtml.replace('{-{config.path}-}',self.configObj['path'])
+            indexHtml=indexHtml.replace('{-{config.title}-}',self.configObj['title'])
+            indexHtml=indexHtml.replace('{-{config.author}-}',self.configObj['author'])
             # print(indexHtml)
         with open('../model/index-item-model.html','r', encoding='UTF-8') as f:
             itemHtml=f.read()
@@ -41,9 +46,18 @@ class BlogHtml:
             if m>=(pageCount-1):
                 b=allCount
             for n in range(a,b):
-                nodeHtml=itemHtml.replace('{123}',self.configObj['list'][n]['date'])
+                nodeHtml=itemHtml.replace('{-{item.pageurl}-}',"html/"+self.configObj['list'][n]['page'])
+                nodeHtml=nodeHtml.replace('{-{item.time}-}',self.configObj['list'][n]['date'])
+                nodeHtml=nodeHtml.replace('{-{item.title}-}',self.configObj['list'][n]['title'])
+                nodeHtml=nodeHtml.replace('{-{item.subcontent}-}',self.subArticle(self.configObj['list'][n]['page']))
+                tagIndex= self.configObj['list'][n]['tag']
+                if tagIndex>=0 and tagIndex <len(self.configObj['tag']):
+                    tag=self.configObj['tag'][tagIndex]['name']
+                    nodeHtml=nodeHtml.replace('{-{item.tag}-}',tag)
+                else:
+                    nodeHtml=nodeHtml.replace('{-{item.tag}-}','')   
                 listview+=nodeHtml
-            html=indexHtml.replace('<-<node.pagelist>->',listview)
+            html=indexHtml.replace('{-<list.title>-}',listview)
             path=None
             if m==0:
                 path='../index.html'
@@ -55,7 +69,16 @@ class BlogHtml:
 
         
         
-        # for obj in self.configObj['list']:
-        #     pass
+    def subArticle(self,path):
+        html=""
+        with open('../content/'+path,"r", encoding='UTF-8') as f:
+            html=f.read()
+            # pattern1=re.compile(r"<script[^>]*?>[\\s\\S]*?<\\/script",re.M|re.I)
+            html=re.sub(r'<script[^>]*?>[\s\S]*?<\/script>', "", html)
+            html=re.sub(r'<style[^>]*?>[\s\S]*?<\/style>', "", html)
+            html=re.sub(r'<[^>]+>', "", html)
+            html=re.sub(r'\s*|\t|\r|\n', "", html)
+            # print html
+        return html[0:400]
         
             

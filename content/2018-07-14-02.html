@@ -1,0 +1,29 @@
+
+<div class="padding-tb-10 line-height">
+    ubuntu安装AS后，像Windows一样通过桌面图标点击启动应用。
+    <br>
+    ubuntu的应用图标都在 /usr/share/applications
+    <br>
+    <span class="code-ubuntu">
+        sudo gedit /usr/share/applications/AndroidStudio.desktop
+    </span>
+    <br>
+    输入内容：
+    <div class="code-ubuntu">
+        [Desktop Entry]
+        <br>
+        Name=Android Studio
+        <br>
+        Comment=android studio
+        <br>
+        Exec=安装位置/android-studio/bin/studio.sh
+        <br>
+        Icon=安装位置/android-studio/bin/studio.png
+        <br>
+        Terminal=false
+        <br>
+        Type=Application
+        <br>
+        Categories=Application
+    </div>
+</div>

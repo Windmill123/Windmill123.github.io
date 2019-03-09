@@ -1,0 +1,49 @@
+<div class="padding-tb-10 line-height">静默安装第三方APP，manifest文件需要配置为系统id <span class="code">android:sharedUserId="android.uid.system"</span>
+同时设置权限为<span class="code">&lt;uses-permission android:name="android.permission.INSTALL_PACKAGES" /&gt;</span>
+<br>
+添加下面的代码，通过 <span class="code">adb push test.apk /system/app/test.apk </span> 命令，重启手机，执行点击时候，没有反应打印也不进入异常，这是由于APP没有使用系统签名
+<span class="code-purple">java -jar signapk.jar platform.x509.pem platform.pk8 test.apk test-sign.apk </span>
+然后修改代码中的<span class="code-purple">runShellCommand("pm install -r "+path+ File.separator+"apk/test.apk");</span>   
+为<span class="code-purple">runShellCommand("pm install -r "+path+ File.separator+"apk/test-sign.apk");</span>
+</div>
+<pre><code class="java">    private void  runShellCommand(String command){
+    Process process=null;
+    BufferedReader bufferedReader=null;
+    StringBuilder shellsb=new StringBuilder();
+    shellsb.delete(0,shellsb.length());
+    String line=null;
+    String [] cmd=new String[]{"/system/bin/sh","-c",command};
+    try{
+        process=Runtime.getRuntime().exec(cmd);
+        bufferedReader=new BufferedReader(new InputStreamReader(process.getInputStream()));
+        while ((line=bufferedReader.readLine())!=null){
+            shellsb.append(line);
+        }
+        Log.e("android","1----------------");
+        Log.e("android","2---------------"+shellsb.toString());
+        process.waitFor();
+    }catch (Exception ex){
+        Log.e("android","3----------------");
+    }finally {
+        if(bufferedReader!=null){
+            try{
+                bufferedReader.close();
+            }catch (Exception ex){
+
+            }
+        }
+        Log.e("android","4----------------");
+        if(process!=null){
+            process.destroy();
+        }
+    }
+}
+
+@Override
+public void onClick(View v) {
+    //pm install -r  /sdcard/haha.apk
+//        Environment.getExternalStorageDirectory().toString()
+    String path= Environment.getExternalStorageDirectory().toString();
+    runShellCommand("pm install -r "+path+ File.separator+"apk/test.apk");
+}</code></pre>
+<script>hljs.initHighlightingOnLoad();</script>
