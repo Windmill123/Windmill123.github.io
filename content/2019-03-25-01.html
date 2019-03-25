@@ -1,0 +1,13 @@
+<div class="padding-tb-10 line-height">
+    在RecyclerView.Adapter中显示多种不同Item，如果设置的getItemViewType的返回值超过getItemCount-1值，或者getItemViewType(0)>0就会越界
+    <pre><code class="java">
+    @Override
+    public int getItemViewType(int position) {
+        Log.e("android", " " + position + "    " + mList.size());
+        if(mList.get(position).getType()==0){
+            return Type_right;
+        }
+        return Type_left;
+    }
+</code></pre>
+</div>
