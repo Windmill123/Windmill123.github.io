@@ -11,6 +11,6 @@
         {"date":"2019-03-09","title":"Ubuntu安装Make","mode":"index-model","tag":2,"path":"../","encrypt":true,"page":"2019-03-09-01.html","isCreate":false},
         {"date":"2019-03-13","title":"开源代码(1)","mode":"index-model","tag":3,"path":"../","encrypt":true,"page":"2019-03-13-01.html","isCreate":false},
         {"date":"2019-03-25","title":"Android开发一：getItemViewType越界","mode":"index-model","tag":0,"path":"../","encrypt":true,"page":"2019-03-25-01.html","isCreate":false},
-        {"date":"2019-04-12","title":"Java遍历时移除元素","mode":"index-model","tag":0,"path":"../","encrypt":true,"page":"2019-04-12-01.html","isCreate":false}
+        {"date":"2019-04-12","title":"Java遍历时移除元素","mode":"index-model","tag":0,"path":"../","encrypt":true,"page":"2019-04-12-01.html","isCreate":true}
     ]
 }
