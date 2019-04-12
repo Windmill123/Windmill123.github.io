@@ -4,12 +4,13 @@
     "logo":"https://avatars1.githubusercontent.com/u/37890402?s=460&v=4",
     "path":"",
     "pageItems":15,
-    "tag":[{"name":"android"},{"name":"C++"},{"name":"Ubuntu"},{"name":"转载与收藏"}],
+    "tag":[{"name":"android"},{"name":"C++"},{"name":"Ubuntu"},{"name":"转载与收藏"},{"name":"Java"}],
     "list":[
         {"date":"2018-07-13","title":"Android静默安装","mode":"index-model","tag":0,"path":"../","encrypt":true,"page":"2018-07-14-01.html","isCreate":false},
         {"date":"2018-08-02","title":"Ubuntu安装AndroidStudio-2","mode":"index-model","tag":2,"path":"../","encrypt":true,"page":"2018-07-14-02.html","isCreate":false},
         {"date":"2019-03-09","title":"Ubuntu安装Make","mode":"index-model","tag":2,"path":"../","encrypt":true,"page":"2019-03-09-01.html","isCreate":false},
         {"date":"2019-03-13","title":"开源代码(1)","mode":"index-model","tag":3,"path":"../","encrypt":true,"page":"2019-03-13-01.html","isCreate":false},
-        {"date":"2019-03-25","title":"Android开发一：getItemViewType越界","mode":"index-model","tag":0,"path":"../","encrypt":true,"page":"2019-03-25-01.html","isCreate":true}
+        {"date":"2019-03-25","title":"Android开发一：getItemViewType越界","mode":"index-model","tag":0,"path":"../","encrypt":true,"page":"2019-03-25-01.html","isCreate":false},
+        {"date":"2019-04-12","title":"Java遍历时移除元素","mode":"index-model","tag":0,"path":"../","encrypt":true,"page":"2019-04-12-01.html","isCreate":false}
     ]
 }

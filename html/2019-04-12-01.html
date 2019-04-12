@@ -1,6 +1,6 @@
 <html>
         <head>
-            <title>开源代码(1)</title>
+            <title>Java遍历时移除元素</title>
             <meta charset="utf-8">
             <meta name="viewport" content="width=device-width, initial-scale=1">
             <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
@@ -31,33 +31,26 @@
                 </div>
                 <div class="row">
                     <div class="col-md-8 col-md-offset-2 col-xs-12 list-page-actile">
-                            <h1>开源代码(1)</h1>
-                            <div class="page-write-time">2019-03-13</div>
+                            <h1>Java遍历时移除元素</h1>
+                            <div class="page-write-time">2019-04-12</div>
                             <div class="page-write-content"><div class="padding-tb-10 line-height">
-    Linux的<a href="https://ftp.gnu.org/gnu/make/">Make</a>文件下载
-    <br>
-    在线查看源码：<a href="https://www.androidos.net.cn/">Android OS</a>
-    <br>
-    <a href="https://www.jianshu.com/u/3ed3336df2c6">翰墨飘香</a>
-    <br/>
-    (1)SmartisanTech（锤子科技）：开源项目包含系统层，OneStep代码
-    <br/>
-Github地址：
-    <a href="https://github.com/SmartisanTech" target="_blank" rel="nofollow">https://github.com/SmartisanTech</a>
-    <br/>
-    (2)小米科技：
-    <br/>
-    Github地址：
-    <a href="https://github.com/MiCode/" target="_blank" rel="nofollow">https://github.com/MiCode/</a>
-    <br/>
-    <a href="https://github.com/MiCode/FileExplorer" target="_blank" rel="nofollow">MIUI文件管理器社区开源版</a>
-    <br/>
-    <a href="https://github.com/MiCode/Notes" target="_blank" rel="nofollow">小米便签社区开源版</a>
-    <br/>
-    <a href="https://github.com/MiCode/SoundRecorder" target="_blank" rel="nofollow">MIUI录音机社区开源版</a>
-    <br />
-    <a href="https://github.com/MiCode/Compass" target="_blank" rel="nofollow">MIUI指南针社区开源版</a>
-</div></div>
+    在集合中经常使用到，边遍历边移除元素。有些情况能够使用倒序遍历移除，有些需要使用下面的操作
+    <pre><code class="java" >
+        private void test(){
+            ArrayList<Object> list=new ArrayList<>();
+            list.add(new Object());
+            list.add(new Object());
+            list.add(new Object());
+            Iterator mIterator=list.iterator();
+            while (mIterator.hasNext()){
+                Object obj=mIterator.next();
+                //...
+                mIterator.remove();
+            }
+        }
+</code></pre>
+</div>
+<script>hljs.initHighlightingOnLoad();</script></div>
                             
                     </div>
                 </div>
