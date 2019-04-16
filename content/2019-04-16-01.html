@@ -2,23 +2,24 @@
     double高进度的在做运算操作时，出现进度上数的随机变化。需要使用BigDecimal操作。
     <pre>
         <code class="java">
-            double val=1.0;
-            double val2=1.0;
-            BigDecimal num = new BigDecimal(Double.toString(val));
-            BigDecimal num2 = new BigDecimal(Double.toString(val2));
-            //加
-            BigDecimal v1 =num.add(num2);
-            //减
-            BigDecimal v2 =num.subtract(num2);
-            //乘
-            BigDecimal v3 =num.multiply(num2);
-            //除
-            /**
-             *@param 除数
-             *@param 精确小数点
-             *@param 两个数的商
-             */
-            BigDecimal v4 =num.divide(num2,2,BigDecimal.ROUND_HALF_UP);
+        double val=1.0;
+        double val2=1.0;
+        BigDecimal num = new BigDecimal(Double.toString(val));
+        BigDecimal num2 = new BigDecimal(Double.toString(val2));
+        //加
+        BigDecimal v1 =num.add(num2);
+        //减
+        BigDecimal v2 =num.subtract(num2);
+        //乘
+        BigDecimal v3 =num.multiply(num2);
+        //除
+        /**
+         *@param 除数
+         *@param 精确小数点
+         *@param 两个数的商
+        */
+        BigDecimal v4 =num.divide(num2,2,BigDecimal.ROUND_HALF_UP);
         </code>
     </pre>
 </div>
+<script>hljs.initHighlightingOnLoad();</script>
