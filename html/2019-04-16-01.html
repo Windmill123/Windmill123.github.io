@@ -1,6 +1,6 @@
 <html>
         <head>
-            <title>命令集合</title>
+            <title>高精度运算</title>
             <meta charset="utf-8">
             <meta name="viewport" content="width=device-width, initial-scale=1">
             <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
@@ -31,38 +31,32 @@
                 </div>
                 <div class="row">
                     <div class="col-md-8 col-md-offset-2 col-xs-12 list-page-actile">
-                            <h1>命令集合</h1>
-                            <div class="page-write-time">2019-04-12</div>
+                            <h1>高精度运算</h1>
+                            <div class="page-write-time">2019-04-16</div>
                             <div class="page-write-content"><div class="padding-tb-10 line-height">
-    Android命令集合
-    <pre><code class="java" >
-    //远程连接
-    adb connect xx.xx.xx.xx
-    //设备列表
-    adb devices
-    //
-    adb -s xxxxxxx shell
-    //
-    adb -s xxxxxx shell am start -n com.xxx.test/com.xxx.test.activity
-    //
-    adb -s xxxxxx shell am broadcast -a com.action.xxxx
-
-    adb shell pm list package -3
-    //获取keystore的信息
-    keytool -list -v -ketstore  xxx.keystore
-</code></pre>
-Git命令集合
-<pre><code class="java" >
-    //查看服务器上的项目
-    ssh git@192.168.xx.xx
-    //克隆服务器上的项目
-    git clone  git@192.168.xx.xx:xxxx.git
-    //修改配置
-    vi .git/config
-</code></pre>
-
-</div>
-<script>hljs.initHighlightingOnLoad();</script></div>
+    double高进度的在做运算操作时，出现进度上数的随机变化。需要使用BigDecimal操作。
+    <pre>
+        <code class="java">
+            double val=1.0;
+            double val2=1.0;
+            BigDecimal num = new BigDecimal(Double.toString(val));
+            BigDecimal num2 = new BigDecimal(Double.toString(val2));
+            //加
+            BigDecimal v1 =num.add(num2);
+            //减
+            BigDecimal v2 =num.subtract(num2);
+            //乘
+            BigDecimal v3 =num.multiply(num2);
+            //除
+            /**
+             *@param 除数
+             *@param 精确小数点
+             *@param 两个数的商
+             */
+            BigDecimal v4 =num.divide(num2,2,BigDecimal.ROUND_HALF_UP);
+        </code>
+    </pre>
+</div></div>
                             
                     </div>
                 </div>

@@ -1,17 +1,20 @@
 <div class="padding-tb-10 line-height">
-    ADB命令集合
+    Android命令集合
     <pre><code class="java" >
-        //远程连接
-        adb connect xx.xx.xx.xx
-        //设备列表
-        adb devices
-        //
-        adb -s xxxxxxx shell
-        //
-        adb -s xxxxxx shell am start -n com.xxx.test/com.xxx.test.activity
-        //
-        adb -s xxxxxx shell am broadcast -a com.action.xxxx
+    //远程连接
+    adb connect xx.xx.xx.xx
+    //设备列表
+    adb devices
+    //
+    adb -s xxxxxxx shell
+    //
+    adb -s xxxxxx shell am start -n com.xxx.test/com.xxx.test.activity
+    //
+    adb -s xxxxxx shell am broadcast -a com.action.xxxx
 
+    adb shell pm list package -3
+    //获取keystore的信息
+    keytool -list -v -ketstore  xxx.keystore
 </code></pre>
 Git命令集合
 <pre><code class="java" >
@@ -22,5 +25,6 @@ Git命令集合
     //修改配置
     vi .git/config
 </code></pre>
+
 </div>
 <script>hljs.initHighlightingOnLoad();</script>
