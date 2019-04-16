@@ -1,0 +1,41 @@
+<div class="padding-tb-10 line-height">
+        
+        <pre>
+            <code class="bash">
+        #!/bin/bash
+
+        NDK=/home/huwei/Android/android-ndk-r16b  # NDK所在路径, 注意替换为
+        SYSROOT=$NDK/platforms/android-19/arch-arm/
+        TOOLCHAIN=$NDK/toolchains/arm-linux-androideabi-4.9/prebuilt/linux-x86_64 # 交叉编译链, 这里使用的是arm, 如果需要编译其他平台的, 更换即可
+        function build_one{
+            ./configure \
+            --prefix=$PREFIX \
+            --enable-shared \  # 生成动态库
+            --disable-static \ # 禁止生成静态库
+            --disable-doc \  # 关闭不需要的功能, 下同
+            --disable-ffplay \
+            --disable-ffprobe \
+            --disable-doc \
+            --disable-symver \
+            --disable-ffmpeg \
+            --enable-small \
+            --cross-prefix=$TOOLCHAIN/bin/arm-linux-androideabi- \
+            --target-os=linux \
+            --arch=arm \ 
+            --enable-cross-compile \
+            --sysroot=$SYSROOT \
+            --extra-cflags="-Os -fpic $ADDI_CFLAGS" \
+            --extra-ldflags="$ADDI_LDFLAGS" \
+            $ADDITIONAL_CONFIGURE_FLAG
+            make clean all
+            make -j3
+            make install
+        }
+        CPU=armv7-a # CPU架构
+        PREFIX=$(pwd)/android/$CPU # 生成动态库所在路径
+        ADDI_CFLAGS="-marm"
+        build_one
+            </code>
+        </pre>
+    </div>
+    <script>hljs.initHighlightingOnLoad();</script>

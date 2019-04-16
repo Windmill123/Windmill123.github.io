@@ -34,30 +34,46 @@
                             <h1>编译ffmpeg(一)</h1>
                             <div class="page-write-time">2019-04-16</div>
                             <div class="page-write-content"><div class="padding-tb-10 line-height">
-    double高进度的在做运算操作时，出现进度上数的随机变化。需要使用BigDecimal操作。
-    <pre>
-        <code class="java">
-        double val=1.0;
-        double val2=1.0;
-        BigDecimal num = new BigDecimal(Double.toString(val));
-        BigDecimal num2 = new BigDecimal(Double.toString(val2));
-        //加
-        BigDecimal v1 =num.add(num2);
-        //减
-        BigDecimal v2 =num.subtract(num2);
-        //乘
-        BigDecimal v3 =num.multiply(num2);
-        //除
-        /**
-         *@param 除数
-         *@param 精确小数点
-         *@param 两个数的商
-        */
-        BigDecimal v4 =num.divide(num2,2,BigDecimal.ROUND_HALF_UP);
-        </code>
-    </pre>
-</div>
-<script>hljs.initHighlightingOnLoad();</script></div>
+        
+        <pre>
+            <code class="bash">
+        #!/bin/bash
+
+        NDK=/home/huwei/Android/android-ndk-r16b  # NDK所在路径, 注意替换为
+        SYSROOT=$NDK/platforms/android-19/arch-arm/
+        TOOLCHAIN=$NDK/toolchains/arm-linux-androideabi-4.9/prebuilt/linux-x86_64 # 交叉编译链, 这里使用的是arm, 如果需要编译其他平台的, 更换即可
+        function build_one{
+            ./configure \
+            --prefix=$PREFIX \
+            --enable-shared \  # 生成动态库
+            --disable-static \ # 禁止生成静态库
+            --disable-doc \  # 关闭不需要的功能, 下同
+            --disable-ffplay \
+            --disable-ffprobe \
+            --disable-doc \
+            --disable-symver \
+            --disable-ffmpeg \
+            --enable-small \
+            --cross-prefix=$TOOLCHAIN/bin/arm-linux-androideabi- \
+            --target-os=linux \
+            --arch=arm \ 
+            --enable-cross-compile \
+            --sysroot=$SYSROOT \
+            --extra-cflags="-Os -fpic $ADDI_CFLAGS" \
+            --extra-ldflags="$ADDI_LDFLAGS" \
+            $ADDITIONAL_CONFIGURE_FLAG
+            make clean all
+            make -j3
+            make install
+        }
+        CPU=armv7-a # CPU架构
+        PREFIX=$(pwd)/android/$CPU # 生成动态库所在路径
+        ADDI_CFLAGS="-marm"
+        build_one
+            </code>
+        </pre>
+    </div>
+    <script>hljs.initHighlightingOnLoad();</script></div>
                             
                     </div>
                 </div>
